@@ -3,7 +3,7 @@ package com.example.madb.console.remote;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.frz.frame.dbremote.DataSourceCache;
 import com.frz.frame.dbremote.DataSourceChanger;
-import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionFactoryBean; 
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
