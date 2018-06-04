@@ -10,18 +10,18 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-    <context:component-scan base-package="cn.zucc.debug.macore.client.controller" />
+    <context:component-scan base-package="com.example.madb.client.controller" />
 
-    <mvc:interceptors>
-        <!-- 对所有请求都拦截，公共拦截器可以有多个 -->
-        <bean name="commonInterceptor" class="cn.zucc.debug.macore.client.interceptor.CommonInterceptor" />
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; 对/core.html进行拦截 &ndash;&gt;-->
-            <!--<mvc:mapping path="/core.html"/>-->
-            <!--&lt;!&ndash; 特定请求的拦截器只能有一个 &ndash;&gt;-->
-            <!--<bean class="cn.zifangsky.interceptor.TestInterceptor" />-->
-        <!--</mvc:interceptor>-->
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--&lt;!&ndash; 对所有请求都拦截，公共拦截器可以有多个 &ndash;&gt;-->
+        <!--<bean name="commonInterceptor" class="cn.zucc.debug.macore.client.interceptor.CommonInterceptor" />-->
+        <!--&lt;!&ndash;<mvc:interceptor>&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash; 对/core.html进行拦截 &ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<mvc:mapping path="/core.html"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash; 特定请求的拦截器只能有一个 &ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<bean class="cn.zifangsky.interceptor.TestInterceptor" />&ndash;&gt;-->
+        <!--&lt;!&ndash;</mvc:interceptor>&ndash;&gt;-->
+    <!--</mvc:interceptors>-->
 
     <mvc:annotation-driven />
 

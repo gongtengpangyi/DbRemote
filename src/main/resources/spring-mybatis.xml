@@ -10,8 +10,8 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- 自动扫描 -->
-    <context:component-scan base-package="cn.zucc.debug.macore" />
-    <context:component-scan base-package="cn.zucc.debug.frame" />
+    <context:component-scan base-package="com.example.madb" />
+    <context:component-scan base-package="com.frz.frame" />
     <!-- 引入配置文件 -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -50,7 +50,7 @@
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="cn.zucc.debug.macore.model.mapper" />
+        <property name="basePackage" value="com.example.madb.model.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
