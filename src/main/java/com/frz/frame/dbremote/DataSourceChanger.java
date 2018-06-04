@@ -1,25 +1,34 @@
 package com.frz.frame.dbremote;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.sql.DataSource;
 
-public class DataSourceChanger<T, E extends DataSource> {
+public abstract class DataSourceChanger<T, E extends DataSource> {
 
-    @Autowired
-    SqlSessionFactoryBean sqlSessionFactory;
+    private SqlSessionFactoryBean sqlSessionFactory;
 
     private DataSourceCache<T, E> dataSourceCache;
 
     public DataSourceChanger() {
+        this.sqlSessionFactory = getSqlSessionFactory();
+        this.dataSourceCache = getDataSourceCache();
     }
 
-    public DataSourceChanger(DataSourceCache<T, E> dataSourceCache) {
-        this.dataSourceCache = dataSourceCache;
+    protected abstract SqlSessionFactoryBean getSqlSessionFactory();
+
+    protected abstract DataSourceCache<T, E> getDataSourceCache();
+
+    public boolean addDataSourceToCache(T key, E dataSource) {
+        if (dataSource != null && dataSourceCache != null) {
+            dataSourceCache.addDataSource(key, dataSource);
+            return true;
+        }
+        return false;
     }
 
-    public boolean setDataSource(DataSource dataSource) {
+
+    public boolean setDataSource(E dataSource) {
         if (dataSource != null) {
             sqlSessionFactory.setDataSource(dataSource);
             return true;
@@ -27,7 +36,7 @@ public class DataSourceChanger<T, E extends DataSource> {
         return false;
     }
 
-    public boolean setDataSource(DataSourceBean dataSourceBean) {
+    public boolean setDataSource(DataSourceBean<E> dataSourceBean) {
         return setDataSource(dataSourceBean.getDataSource());
     }
 
