@@ -36,4 +36,12 @@ public class DataSourceCache<T, E extends DataSource> {
         }
         return null;
     }
+
+    public Map<Object, Object> getDataSourceMap() {
+        Map<Object, Object> dataSourceMap = new HashMap<>();
+        for (T key :  dataSourceBeanMap.keySet()) {
+            dataSourceMap.put(key, dataSourceBeanMap.get(key).getDataSource());
+        }
+        return dataSourceMap;
+    }
 }
